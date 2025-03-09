@@ -41,13 +41,13 @@
       <!-- Hero Section -->
       <section id="hero" class="vh-100 d-flex align-items-center">
         <div class="holo-card" data-aos="zoom-in">
-          <h1 class="display-3">Sandhiya E K</h1>
-          <p class="lead">Front End Developer &amp; UI Engineer</p>
+          <h1 class="display-3" id="hero-title">Sandhiya E K</h1>
+          <p class="lead" id="hero-subtitle">Front End Developer &amp; UI Engineer</p>
           <div class="mt-4">
             <a href="#projects" class="btn btn-holo">View Projects</a>
           </div>
         </div>
-      </section>
+      </section>      
 
       <!-- About Section -->
       <section id="about" data-aos="fade-right">
@@ -56,7 +56,7 @@
           <div class="row align-items-center">
             <div class="col-md-6 mb-3">
               <img
-                src="https://via.placeholder.com/500x500"
+                src="./images/no-bg.png"
                 alt="Profile"
                 class="img-fluid rounded-circle"
               />
@@ -65,7 +65,7 @@
               <p class="lead">
                 I am a passionate and detail-oriented Front End Developer with
                 expertise in creating dynamic, responsive web applications using
-                modern frameworks like React and Angular. My designs focus on
+                modern frameworks like React. My designs focus on
                 usability, performance, and elegance.
               </p>
               <p>
@@ -86,94 +86,18 @@
           <div class="project-filter">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="frontend">Frontend</button>
-            <button class="filter-btn" data-filter="backend">Backend</button>
             <button class="filter-btn" data-filter="fullstack">
               Full Stack
             </button>
-            <button class="filter-btn" data-filter="figma">Figma</button>
           </div>
           <!-- Projects Grid -->
           <div class="project-grid">
-            <!-- Project Card: Dynamic Portfolio (Frontend & Full Stack) -->
-            <div
-              class="flip-card project-card"
-              data-category="frontend fullstack"
-            >
-              <div class="flip-card-inner">
-                <!-- Front Side: Image and Name -->
-                <div class="flip-card-front">
-                  <img
-                    src="https://via.placeholder.com/600x300"
-                    alt="Dynamic Portfolio"
-                  />
-                  <h5>Dynamic Portfolio</h5>
-                </div>
-                <!-- Back Side: Description, Tech Stack, and Link -->
-                <div class="flip-card-back">
-                  <h5>Dynamic Portfolio</h5>
-                  <p>Interactive portfolio builder with real-time updates.</p>
-                  <div class="tech-stack">
-                    <span class="badge badge-pill badge-primary">React</span>
-                    <span class="badge badge-pill badge-secondary"
-                      >Node.js</span
-                    >
-                    <span class="badge badge-pill badge-info">MongoDB</span>
-                  </div>
-                  <a href="#" target="_blank">View Project</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project Card: Udemy Course Fetcher (Backend) -->
-            <div class="flip-card project-card" data-category="backend">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <img
-                    src="https://via.placeholder.com/600x300"
-                    alt="Udemy Course Fetcher"
-                  />
-                  <h5>Udemy Course Fetcher</h5>
-                </div>
-                <div class="flip-card-back">
-                  <h5>Udemy Course Fetcher</h5>
-                  <p>Real-time course tracking with AI integration.</p>
-                  <div class="tech-stack">
-                    <span class="badge badge-pill badge-primary">Python</span>
-                    <span class="badge badge-pill badge-warning">FastAPI</span>
-                    <span class="badge badge-pill badge-info">Firebase</span>
-                  </div>
-                  <a href="#" target="_blank">View Project</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project Card: Figma Design (Figma) -->
-            <div class="flip-card project-card" data-category="figma">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <img
-                    src="https://via.placeholder.com/600x300"
-                    alt="Figma Design"
-                  />
-                  <h5>Figma Design</h5>
-                </div>
-                <div class="flip-card-back">
-                  <h5>Figma Design</h5>
-                  <p>High fidelity prototype created in Figma.</p>
-                  <div class="tech-stack">
-                    <span class="badge badge-pill badge-info">Figma</span>
-                  </div>
-                  <a href="#" target="_blank">View Design</a>
-                </div>
-              </div>
-            </div>
-
             <!-- Project Card: Internal Organs Explorer (Frontend) -->
             <div class="flip-card project-card" data-category="frontend">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <img
-                    src="https://via.placeholder.com/600x300"
+                    src="images/internal-organs-explorer.png"
                     alt="Internal Organs Explorer"
                   />
                   <h5>Internal Organs Explorer</h5>
@@ -203,7 +127,7 @@
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <img
-                    src="https://via.placeholder.com/600x300"
+                    src="images/e-commerce.png"
                     alt="E-Commerce Website"
                   />
                   <h5>E-Commerce Website</h5>
@@ -231,7 +155,7 @@
                 <!-- Front Side: Image and Name -->
                 <div class="flip-card-front">
                   <img
-                    src="https://via.placeholder.com/600x300"
+                    src="images/time-tracker.png"
                     alt="Time Tracker Application"
                   />
                   <h5>Time Tracker Application</h5>
@@ -263,7 +187,7 @@
             <div class="flip-card project-card" data-category="frontend">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
-                  <img src="./assets/images/hero-image.png" alt="Bambino " />
+                  <img src="images/bambino.png" alt="Bambino " />
                   <h5>Bambino</h5>
                 </div>
                 <div class="flip-card-back">
@@ -288,7 +212,7 @@
             <div class="flip-card project-card" data-category="frontend">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
-                  <img src="./assets/images/hero-image.png" alt="Bizpro" />
+                  <img src="images/bizpro.png" alt="Bizpro" />
                   <h5>Bizpro</h5>
                 </div>
                 <div class="flip-card-back">
@@ -312,7 +236,7 @@
             <div class="flip-card project-card" data-category="frontend">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
-                  <img src="./assets/images/hero-image.png" alt="Skola" />
+                  <img src="images/skola.png" alt="Skola" />
                   <h5>Skola</h5>
                 </div>
                 <div class="flip-card-back">
@@ -338,7 +262,7 @@
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <img
-                    src="./assets/images/hero-image.png"
+                    src="images/biccas.png"
                     alt="Biccas - We’re here to Increase your Productivity"
                   />
                   <h5>Biccas - We’re here to Increase your Productivity</h5>
@@ -366,7 +290,7 @@
               <div class="flip-card-inner">
                 <!-- Front Side: Image and Name -->
                 <div class="flip-card-front">
-                  <img src="assets/images/logo.png" alt="Kinderly" />
+                  <img src="images/kinderly.png" alt="Kinderly" />
                   <h5>Kinderly</h5>
                 </div>
                 <!-- Back Side: Description, Tech Stack, and Link -->
@@ -392,7 +316,7 @@
             <div class="flip-card project-card" data-category="frontend">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
-                  <img src="assets/images/hero.jpg" alt="Realistic" />
+                  <img src="images/realistic.png" alt="Realistic" />
                   <h5>Realistic</h5>
                 </div>
                 <div class="flip-card-back">
@@ -403,7 +327,9 @@
                     <span class="badge badge-pill badge-secondary">CSS</span>
                     <span class="badge badge-pill badge-info">JavaScript</span>
                   </div>
-                  <a href="http://sandhiyaek.me/Realistic/" target="_blank">View Project</a>
+                  <a href="http://sandhiyaek.me/Realistic/" target="_blank"
+                    >View Project</a
+                  >
                 </div>
               </div>
             </div>

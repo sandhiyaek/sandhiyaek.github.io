@@ -236,6 +236,8 @@ randomMove(spaceManRocket);
 // Drag & Drop Variables for Space Man Rocket
 let draggedObject = null;
 const dragPlane = new THREE.Plane();
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
 
 // Mousedown: start dragging if spaceManRocket is clicked
 document.addEventListener("mousedown", (e) => {
@@ -267,15 +269,13 @@ document.addEventListener("mousedown", (e) => {
 
 // Mousemove: if dragging, update the object's position
 document.addEventListener("mousemove", (e) => {
-  if (draggedObject) {
-    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
-    raycaster.setFromCamera(mouse, camera);
-    const intersection = new THREE.Vector3();
-    raycaster.ray.intersectPlane(dragPlane, intersection);
-    if (intersection) {
-      draggedObject.position.copy(intersection);
-    }
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  raycaster.setFromCamera(mouse, camera);
+  const intersection = new THREE.Vector3();
+  raycaster.ray.intersectPlane(dragPlane, intersection);
+  if (draggedObject && intersection) {
+    draggedObject.position.copy(intersection);
   }
 });
 
@@ -353,25 +353,61 @@ for (let i = 0; i < 8; i++) {
 scene.add(cloudGroup);
 
 // Raycaster for Hover Effects (for non-drag interactions)
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
 let hoveredObject = null;
 document.addEventListener("mousemove", (e) => {
-  gsap.to(document.getElementById("custom-cursor"), {
-    duration: 0.15,
-    left: e.clientX,
-    top: e.clientY,
-  });
-  const sparkle = document.createElement("div");
-  sparkle.className = "sparkle";
-  sparkle.style.left = e.clientX + "px";
-  sparkle.style.top = e.clientY + "px";
-  document.body.appendChild(sparkle);
-  setTimeout(() => {
-    sparkle.remove();
-  }, 500);
+  // This block updates the mouse coordinates for raycasting
   mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+});
+
+// --- Enhanced Custom Cursor & Sparkle Effect (Magnifier Style) ---
+// Note: Ensure your CSS for #custom-cursor sets it to a larger size (e.g., 80px x 80px)
+// and styles it like a magnifier (with a circular shape, border, background, and box-shadow).
+const cursor = document.querySelector('#custom-cursor');
+gsap.set(cursor, { scale: 1 }); // default scale
+
+document.addEventListener('mousemove', function(e) {
+  // Smoothly move the custom magnifier-style cursor
+  gsap.to(cursor, {
+    duration: 0.1,
+    x: e.clientX,
+    y: e.clientY,
+    ease: "power2.out"
+  });
+
+  // Create a sparkle effect at the cursor's location
+  let sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.style.left = `${e.clientX}px`;
+  sparkle.style.top = `${e.clientY}px`;
+  document.body.appendChild(sparkle);
+  
+  gsap.to(sparkle, {
+    duration: 0.5,
+    opacity: 0,
+    scale: 2,
+    ease: "power2.out",
+    onComplete: () => sparkle.remove()
+  });
+});
+
+// Add hover effects for interactive elements (links, buttons, etc.)
+const interactiveElements = document.querySelectorAll('a, button, .interactive');
+interactiveElements.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    gsap.to(cursor, {
+      duration: 0.2,
+      scale: 1.3,
+      backgroundColor: "rgba(255,107,107,0.8)"
+    });
+  });
+  el.addEventListener('mouseleave', () => {
+    gsap.to(cursor, {
+      duration: 0.2,
+      scale: 1,
+      backgroundColor: "#fff"
+    });
+  });
 });
 
 // Click Event for Navigation via Rocket
